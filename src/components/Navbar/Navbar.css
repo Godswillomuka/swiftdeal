@@ -1,0 +1,89 @@
+/* General Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-radius: 50px;
+  }
+  
+  .logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2563eb;
+    text-decoration: none;
+  }
+  
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Start off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  .sidebar.active {
+    left: 0; /* Slide into view */
+  }
+  
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+  }
+  
+  .sidebar-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.5rem 0;
+  }
+  
+  .sidebar-links a:hover {
+    color: #2563eb;
+  }
+  
+  .sidebar-links .login-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    border-radius: 50px;
+  }
+  
+  .sidebar-links .login-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block; /* Show hamburger button on smaller screens */
+    }
+  
+    .nav-links {
+      display: none; /* Hide nav links on larger screens */
+    }
+  }
