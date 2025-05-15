@@ -1,47 +1,62 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+function Navbar() {
+  // Define the darkMode state
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Toggle theme function
+  const toggleTheme = () => {
+    setDarkMode((prevMode) => !prevMode); // Toggle the state
+    document.body.classList.toggle('dark-mode'); // Toggle the class on the body
+  };
+
+  // Persist theme preference in localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme === 'true') {
+      setDarkMode(true);
+      document.body.classList.add('dark-mode');
+    }
+  }, []); // Run once on component mount
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', darkMode); // Save the theme preference
+  }, [darkMode]); // Update localStorage whenever darkMode changes
 
   return (
     <nav className="navbar">
       {/* Logo */}
-      <div className="logo">
-        <Link to="/">SwiftDeal</Link>
-      </div>
-       <div className="sidebar-links">
-          <Link to="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
-          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
-          <Link to="/sell" onClick={() => setIsMenuOpen(false)}>Sell</Link>
-          <Link to="/login" className="login-btn" onClick={() => setIsMenuOpen(false)}>
-            Login | <span>Register</span>
-          </Link>
-        </div>
-
-      {/* Sidebar Menu */}
-      <div className={`sidebar ${isMenuOpen ? 'active' : ''}`}>
-        <div className="sidebar-links">
-          <Link to="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
-          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
-          <Link to="/sell" onClick={() => setIsMenuOpen(false)}>Sell</Link>
-          <Link to="/login" className="login-btn" onClick={() => setIsMenuOpen(false)}>
-            Login | <span>Register</span>
-          </Link>
-        </div>
+      <div className="nav-logo">
+        <h1>SwiftDeal</h1>
+        <span className="nav-sublogo">-Global Marketplace-</span>
       </div>
 
-      {/* Hamburger Button */}
-      <button 
-        className="hamburger" 
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        aria-label="Toggle menu"
-      >
-        ☰
-      </button>
+      {/* Navigation Links */}
+      <ul className="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#sell">Sell</a></li>
+      </ul>
+
+      {/* Buttons */}
+      <div className="nav-buttons">
+        <button className="login-button">Sign In</button>
+        <button className="signup-button">Register</button>
+
+        {/* Theme Toggle Button */}
+        <label className="theme-toggle">
+          <input
+            type="checkbox"
+            checked={darkMode} // Bind the checkbox to the darkMode state
+            onChange={toggleTheme} // Call toggleTheme when the checkbox changes
+          />
+          <span className="slider round"></span>
+        </label>
+      </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
