@@ -5,10 +5,12 @@ import './Navbar.css';
 function Navbar() {
   return (
     <nav className="navbar">
-      {/* Logo */}
+      {/* Logo wrapped in Link */}
       <div className="nav-logo">
-        <h1>SwiftDeal</h1>
-        <span className="nav-sublogo">-Global Marketplace-</span>
+        <Link to="/" className="nav-logo-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <h1>SwiftDeal</h1>
+          <span className="nav-sublogo">-Global Marketplace-</span>
+        </Link>
       </div>
 
       {/* Navigation Links */}
