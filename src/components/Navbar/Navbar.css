@@ -1,26 +1,24 @@
+/* Navbar container */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #1c626e;
-    border-radius: 10px;
-    height: 10px;
-    margin: 0;
-    padding: 30px;
-    position: sticky;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  background-color: #1c626e;
+  border-radius: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 /* Logo */
 .nav-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-    height: auto;
-    margin-left: 50px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  cursor: pointer;
+  margin-left: 50px;
 }
 
 .nav-logo h1 {
@@ -36,7 +34,37 @@
   color: #fff;
 }
 
-/* Navigation Links */
+/* Hamburger - hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 50px;
+  gap: 5px;
+  z-index: 200;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+.bar.change:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.bar.change:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.change:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Nav links - desktop */
 .nav-links {
   list-style: none;
   display: flex;
@@ -57,7 +85,7 @@
 }
 
 .nav-links a:hover {
-  color: #00D2D9; /* Match the Register button color */
+  color: #00d2d9;
 }
 
 .nav-links a::after {
@@ -72,10 +100,10 @@
 }
 
 .nav-links a:hover::after {
-  background-color: #00D2D9; /* Match the Register button color */
+  background-color: #00d2d9;
 }
 
-/* Buttons */
+/* Buttons - desktop */
 .nav-buttons {
   display: flex;
   gap: 10px;
@@ -88,15 +116,15 @@
   border-radius: 35px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: bold; /* Bold text for Sign In button */
-  background-color:#05161a;
+  font-weight: bold;
+  background-color: #05161a;
   color: #fff;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .login-button:hover {
-  background-color: #16191a; /* Match the Register button color */
-  color: #5ddddd;/* Fixed typo here */
+  background-color: #16191a;
+  color: #5ddddd;
 }
 
 .signup-button {
@@ -105,8 +133,8 @@
   border-radius: 30px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: bold; /* Bold text for Register button */
-  background-color: #00D2D9;
+  font-weight: bold;
+  background-color: #00d2d9;
   color: #ffffff;
   transition: background-color 0.3s ease;
 }
@@ -115,28 +143,126 @@
   background-color: #aaebf0;
 }
 
+/* Nav menu container (desktop) */
+/* This container holds both nav-links and nav-buttons on desktop */
+.nav-menu {
+  display: flex; /* Display as flex row by default */
+  flex-grow: 1; /* Allow it to take available space */
+  justify-content: flex-end; /* Push content (links and buttons) to the right */
+  align-items: center; /* Align items vertically */
+  /* Remove the gap here, as nav-links and nav-buttons have their own gaps */
+}
 
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
+    flex-wrap: nowrap;
+    padding: 15px 20px;
   }
 
+  .nav-logo {
+    margin-left: 10px;
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
+  }
+
+  /* Nav menu container (mobile specific) */
+  .nav-menu {
+    position: absolute;
+    top: 70px; /* Adjust based on your navbar height */
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #1c626e;
+    border-radius: 0 0 10px 10px;
+    max-height: 0; /* Hidden by default */
+    opacity: 0; /* Hidden by default */
+    overflow: hidden;
+    padding: 0 20px; /* Padding when closed */
+    box-sizing: border-box;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    z-index: 150;
+    display: flex; /* Keep flex */
+    flex-direction: column; /* Stack vertically on mobile */
+    gap: 20px; /* Gap between nav-links and nav-buttons */
+  }
+
+  /* Show nav-menu when active */
+  .nav-menu.nav-active {
+    max-height: 700px; /* Enough height for all items */
+    opacity: 1;
+    padding: 20px; /* Padding when open */
+  }
+
+  /* Nav links - mobile */
   .nav-links {
+    list-style: none;
+    display: flex;
     flex-direction: column;
     gap: 15px;
-    margin: 10px 0;
+    margin: 0;
+    padding: 0;
   }
 
+  .nav-links li {
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 10px 0;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    color: #00d2d9;
+  }
+
+  /* Buttons - mobile */
   .nav-buttons {
+    display: flex;
     flex-direction: column;
-    width: 100%;
-    margin: 10px 0;
+    gap: 15px;
+    align-items: center; /* This centers the buttons horizontally */
+    margin-top: 10px;
   }
 
   .nav-buttons button {
-    width: 100%;
+    width: 90%; /* Adjusted for better centering and responsiveness */
+    max-width: 280px; /* Optional: limit max width of buttons */
+    padding: 12px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 50px; /* Align with logo */
+  }
+
+  .login-button {
+    background-color: #05161a;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .login-button:hover {
+    background-color: #16191a;
+    color: #5ddddd;
+  }
+
+  .signup-button {
+    background-color: #00d2d9;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  .signup-button:hover {
+    background-color: #aaebf0;
   }
 }
-
