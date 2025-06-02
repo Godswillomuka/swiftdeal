@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './Navbar.css';
 
 function Navbar() {
@@ -20,7 +22,7 @@ function Navbar() {
 
       {/* Buttons */}
       <div className="nav-buttons">
-        <button className="login-button">Sign In</button>
+        <button className="login-button">Sign In </button>
         <button className="signup-button">Register</button>
       </div>
     </nav>

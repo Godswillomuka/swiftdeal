@@ -1,0 +1,154 @@
+.aboutus-container {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #ebf4ff, #fff);
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  padding: 100px 20px;
+  text-align: center;
+}
+.hero-bg {
+  background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  position: absolute;
+  inset: 0;
+}
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 20px;
+}
+.hero-text {
+  font-size: 1.25rem;
+  color: #4a5568;
+  line-height: 1.8;
+}
+
+/* Vision & Mission */
+.vision-mission-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 20px;
+}
+.vision-box,
+.mission-box {
+  background: #ebf4ff;
+  padding: 40px;
+  border-radius: 20px;
+}
+.vision-box h2,
+.mission-box h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Statistics Section */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 20px;
+  text-align: center;
+}
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stat-icon {
+  background-color: #2b6cb0;
+  color: white;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.stat-card h3 {
+  font-size: 2rem;
+  color: #2b6cb0;
+  margin-bottom: 8px;
+}
+.stat-card p {
+  color: #4a5568;
+}
+
+/* Team Section */
+.team-section {
+  background-color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 60px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+.team-member img {
+  width: 130px;
+  height: 130px;
+  border-radius: 9999px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+.role {
+  color: #2b6cb0;
+  margin-bottom: 6px;
+}
+.desc {
+  color: #4a5568;
+  font-size: 14px;
+}
+
+/* Values Section */
+.values-section {
+  padding: 100px 20px;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+.value-card {
+  background-color: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+.value-card h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #2d3748;
+}
+.value-card p {
+  color: #4a5568;
+}
