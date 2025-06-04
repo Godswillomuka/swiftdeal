@@ -1,5 +1,463 @@
+/* General Body Styles */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    background-color: #E5E7EB;
+    background-color: #E5E7EB; /* Light grey background */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Hero Section Styling */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  /* Align items to the start to make their top edges align */
+  align-items: flex-start; /* Changed from center to flex-start */
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f8ff, #e0f2f7);
+  min-height: calc(100vh - 140px);
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.hero-left {
+  flex: 1 1 45%;
+  max-width: 600px;
+  padding-right: 30px;
+  text-align: left;
+  /* Add top padding to align the top with search bar in hero-right, adjust as needed */
+  padding-top: 20px; /* New: Added padding to align with search bar */
+}
+
+.hero-left h1 {
+  font-size: 3.2rem;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  line-height: 1.2;
+}
+
+.hero-left p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #34495e;
+}
+
+/* Hero Buttons Styling */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 60px;
+    margin-bottom: -45px;
+}
+
+.hero-buttons button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.get-started {
+  background-color: #00d2d9;
+  color: white;
+}
+
+.get-started:hover {
+  background-color: #00b4bd;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.learn-more {
+  background-color: #e0f7fa;
+  color: #00d2d9;
+  border: 2px solid #00d2d9;
+}
+
+.learn-more:hover {
+  background-color: #c0eaea;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.stats {
+  margin-top: 140px;
+  display: flex;
+  gap: 50px;
+  color: #2c3e50;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.stats span {
+  font-size: 1.8rem;
+  color: #00d2d9;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Hero Right Section Styling */
+.hero-right {
+  flex: 1 1 45%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 35px;
+  width: 100%;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 64px;
+  transition: transform 0.3s ease;
+}
+
+.search-bar:hover {
+  transform: scale(1.02);
+}
+
+.category-select {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  padding: 5px 10px;
+  margin-right: 5px;
+  outline: none;
+  cursor: pointer;
+  color: #34495e;
+  transition: border-color 0.3s ease;
+}
+
+.category-select:focus {
+  border-color: #00d2d9;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  font-size: 1rem;
+  padding: 5px;
+  outline: none;
+  color: #34495e;
+  margin-right: -15px;
+}
+
+.search-btn {
+  background: #00d2d9;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  padding: 10px 12px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+}
+
+.search-btn:hover {
+  background-color: #00b4bd;
+  transform: scale(1.1);
+}
+
+/* --- NEW: Carousel Container for 3D Effect --- */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Increased height to show more of the stack */
+    margin: 0 auto 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 1200px;
+    perspective-origin: center center;
+}
+
+.carousel-slide {
+    position: absolute;
+    width: 300px; /* Increased card width */
+    height: 300px; /* Increased card height */
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 20px; /* Increased border-radius */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+                filter 0.8s ease-in-out,
+                opacity 0.8s ease-in-out,
+                z-index 0s 0.4s;
+    backface-visibility: hidden;
+}
+
+.carousel-slide img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    border-radius: 15px; /* Slightly less than card border-radius */
+    filter: brightness(1);
+}
+
+/* --- Specific States for Carousel Images (Adjusted for "coming from up" flow) --- */
+
+/* Active (middle, large, clear) */
+.carousel-slide.active-slide {
+    transform: translateZ(0px) translateY(0px) translateX(0px) scale(1.2); /* Front and center, larger */
+    opacity: 1;
+    filter: blur(0px);
+    z-index: 10;
+}
+
+/* Next (appears above active, smaller, blurred, coming from right) */
+.carousel-slide.next-slide {
+    transform: translateZ(-80px) translateY(-140px) translateX(100px) scale(0.8); /* Up, back, right */
+    opacity: 0.7;
+    filter: blur(2px);
+    z-index: 5;
+}
+
+/* Previous (appears below active, smaller, blurred, going towards right) */
+.carousel-slide.previous-slide {
+    transform: translateZ(-80px) translateY(140px) translateX(100px) scale(0.8); /* Down, back, right */
+    opacity: 0.7;
+    filter: blur(2px);
+    z-index: 5;
+}
+
+/* Further Next (even further above, smaller, more blurred, more to the right) */
+.carousel-slide.further-next-slide {
+    transform: translateZ(-150px) translateY(-250px) translateX(150px) scale(0.6); /* Even further up, back, right */
+    opacity: 0.3;
+    filter: blur(5px);
+    z-index: 2;
+}
+
+/* Further Previous (even further below, smaller, more blurred, more to the right) */
+.carousel-slide.further-previous-slide {
+    transform: translateZ(-150px) translateY(250px) translateX(150px) scale(0.6); /* Even further down, back, right */
+    opacity: 0.3;
+    filter: blur(5px);
+    z-index: 2;
+}
+
+
+/* Hidden (completely off-screen and ready to enter/leave) */
+.carousel-slide.hidden-off-screen {
+    transform: translateZ(-300px) translateY(-400px) translateX(300px) scale(0.3); /* Far back, far up, far right */
+    opacity: 0;
+    filter: blur(10px);
+    z-index: 1;
+    /* When an image "enters" it goes from this state to 'next-slide' or 'further-next-slide' */
+    /* When an image "leaves" it goes from 'previous-slide' or 'further-previous-slide' to this state */
+}
+
+/* --- Fade In Animation for the Hero Section --- */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Removed carousel dots as requested */
+.carousel-dots {
+  display: none;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 1024px) {
+  .hero-left, .hero-right {
+    padding: 0 15px; /* Adjust padding for medium screens */
+  }
+
+  .hero-left h1 {
+    font-size: 2.8rem;
+  }
+  .hero-left {
+    padding-top: 20px; /* Maintain padding on smaller screens */
+  }
+  .carousel-wrapper {
+      height: 400px; /* Adjusted height */
+  }
+  .carousel-slide {
+      width: 250px; /* Adjusted size */
+      height: 250px;
+      border-radius: 18px;
+  }
+  .carousel-slide.active-slide {
+      transform: translateZ(0px) translateY(0px) translateX(0px) scale(1.1);
+  }
+  .carousel-slide.next-slide {
+      transform: translateZ(-70px) translateY(-120px) translateX(80px) scale(0.75);
+  }
+  .carousel-slide.previous-slide {
+      transform: translateZ(-70px) translateY(120px) translateX(80px) scale(0.75);
+  }
+  .carousel-slide.further-next-slide {
+      transform: translateZ(-120px) translateY(-200px) translateX(120px) scale(0.55);
+  }
+  .carousel-slide.further-previous-slide {
+      transform: translateZ(-120px) translateY(200px) translateX(120px) scale(0.55);
+  }
+  .carousel-slide.hidden-off-screen {
+    transform: translateZ(-250px) translateY(-300px) translateX(250px) scale(0.25);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px 5%;
+    align-items: center; /* Re-center items when stacked vertically */
+  }
+
+  .hero-left, .hero-right {
+    flex: 1 1 100%;
+    max-width: 100%;
+    text-align: center;
+    padding: 0; /* Remove side padding for full width on mobile */
+  }
+
+  .hero-left {
+    margin-bottom: 30px;
+    padding-top: 0; /* Remove specific top padding for mobile, let content flow naturally */
+  }
+
+  .hero-left h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  .hero-buttons button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .stats {
+    justify-content: center;
+    gap: 30px;
+    font-size: 1rem;
+  }
+
+  .stats span {
+    font-size: 1.5rem;
+  }
+
+  .hero-right {
+    /* Removed 'order: 1;' to place it after hero-left on mobile */
+    margin-bottom: 30px;
+  }
+
+  .search-bar {
+    flex-direction: column; /* This keeps the search bar elements stacked vertically on mobile */
+    gap: 15px;
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .search-bar input,
+  .category-select {
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 12px 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+  }
+
+  .search-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  /* Carousel adjustments for mobile */
+  .carousel-wrapper {
+    height: 350px; /* Adjusted height */
+  }
+  .carousel-slide {
+    width: 200px; /* Smaller base size */
+    height: 200px;
+    border-radius: 15px;
+  }
+  .carousel-slide.active-slide {
+      transform: translateZ(0px) translateY(0px) translateX(0px) scale(1.0);
+  }
+  .carousel-slide.next-slide {
+      transform: translateZ(-50px) translateY(-100px) translateX(60px) scale(0.7);
+      filter: blur(2px);
+  }
+  .carousel-slide.previous-slide {
+      transform: translateZ(-50px) translateY(100px) translateX(60px) scale(0.7);
+      filter: blur(2px);
+  }
+  .carousel-slide.further-next-slide {
+      transform: translateZ(-100px) translateY(-180px) translateX(100px) scale(0.5);
+  }
+  .carousel-slide.further-previous-slide {
+      transform: translateZ(-100px) translateY(180px) translateX(100px) scale(0.5);
+  }
+  .carousel-slide.hidden-off-screen {
+    transform: translateZ(-200px) translateY(-300px) translateX(200px) scale(0.2);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left h1 {
+    font-size: 1.8rem;
+  }
+  .hero-left p {
+    font-size: 0.95rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-buttons button {
+    width: 80%;
+    max-width: 250px;
+  }
+  .stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 30px;
+  }
 }
