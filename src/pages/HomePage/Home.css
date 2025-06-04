@@ -279,6 +279,137 @@ body {
   animation: fadeIn 0.8s ease-in-out forwards;
 }
 
+/* Common Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-header h3 {
+  font-size: 2rem;
+  color: #1f2937; /* Will be updated */
+  margin-bottom: 1rem;
+}
+.section-header p {
+  color: #4b5563; /* Will be updated */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Features Section --- */
+.features-section {
+  padding: 5rem 0;
+  background-color: #E5E7EB; /* Light grey background, similar to body for blend */
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.feature-card {
+  background-color: #ffffff; /* White background for cards */
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+.feature-card:hover {
+  transform: translateY(-8px); /* More pronounced lift */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Increased shadow on hover */
+}
+.icon-box {
+  width: 56px;
+  height: 56px;
+  background-color: #1c626e; /* Your primary brand color */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  margin: 0 auto 1rem;
+  /* Consider a subtle gradient or pattern here if desired */
+  /* background: linear-gradient(135deg, #1c626e, #00d2d9); */
+}
+.icon-box svg { /* Lucide icons are SVG */
+    color: white;
+    width: 28px;
+    height: 28px;
+}
+.feature-card h4 {
+  font-size: 1.25rem;
+  color: #1c626e; /* Primary brand color for titles */
+  margin-bottom: 0.5rem;
+}
+.feature-card p {
+  color: #34495e; /* Darker gray for readability */
+}
+
+/* --- Roles Section --- */
+.roles-section {
+  padding: 5rem 0;
+  background-color: #ffffff; /* White background for roles section */
+}
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.role-card {
+  background-color: #f8f8f8; /* Very light grey for role cards to distinguish */
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Consistent subtle shadow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.role-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Consistent hover shadow */
+  transform: translateY(-8px); /* Consistent hover lift */
+}
+.role-card h4 {
+  font-size: 1.5rem;
+  color: #1c626e; /* Primary brand color for titles */
+  margin-bottom: 1rem;
+}
+.role-card p {
+  color: #34495e; /* Darker gray for readability */
+  margin-bottom: 1.5rem;
+}
+.role-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00d2d9; /* Your highlight brand color */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease, opacity 0.3s ease; /* Transition background color */
+}
+.role-btn:hover {
+  background-color: #00b4bd; /* Slightly darker highlight on hover */
+  opacity: 1; /* Ensure opacity remains 1 */
+}
+.role-btn svg { /* Lucide icons are SVG */
+    color: white;
+    width: 24px; /* Slightly larger icon in buttons */
+    height: 24px;
+}
+
+/* --- Section Header Color Updates --- */
+.section-header h3 {
+  color: #1c626e; /* Your primary brand color for section titles */
+}
+.section-header p {
+  color: #34495e; /* Darker gray for readability */
+}
+
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

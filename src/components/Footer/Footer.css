@@ -1,44 +1,5 @@
-.footer {
-  display: flex;
-  justify-content: space-between;
-  background-color: #1c626e;
-  color: #fff;
-  padding: 20px 5%;
-  flex-wrap: wrap;
-}
+/* Footer.css */
 
-.footer-left h3 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.footer-right {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.footer-right a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.footer-right a:hover {
-  color: #00D2D9;
-}
-
-@media (max-width: 768px) {
-  .footer {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-right {
-    justify-content: center;
-    margin-top: 10px;
-  }
-}
 .footer {
   background-color: #1c626e;
   color: #fff;
@@ -50,28 +11,115 @@
   border: none;
   height: 1px;
   background: #ccc;
+  margin-top: 30px;
   margin-bottom: 25px;
+  opacity: 0.2;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
-  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px 30px;
 }
 
-.footer-logo h3 {
-  margin: 0;
+/* Base Styling for all Footer Groups (logo, links, contact, social) */
+.footer-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    flex-basis: 22%;
+    min-width: 150px;
+}
+
+/* Specific styling for the company info/logo group */
+.footer-about {
+    flex-basis: 25%;
+    min-width: 200px;
+}
+
+/* Styling for the titles within footer groups (Quick Links, Contact Us, Our Platforms) */
+.footer-group h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #00d2d9; /* The primary highlight color for all titles */
+  font-size: 18px;
+  text-align: left;
+}
+
+/* --- LOGO STYLING --- */
+.footer-logo-link {
+  display: flex; /* Make the link a flex container */
+  flex-direction: column; /* Stack h2 and span vertically */
+  align-items: flex-start; /* Align text to the left within the link */
+  margin-bottom: 10px;
+  text-decoration: none; /* Ensure no default underline */
+  color: #fff; /* Default color for the entire logo link, both h2 and span will inherit */
+  position: relative; /* Needed for the underline animation on hover */
+  transition: color 0.3s ease; /* Smooth transition for inherited color change */
+}
+
+/* Footer Logo H2 (Main Title) */
+.footer-logo h2 {
   font-size: 24px;
+  font-weight: bold;
+  /* Color is inherited from .footer-logo-link or set by active class */
+  margin: 0; /* Remove default h2 margins */
 }
 
-.footer-logo p {
-  font-size: 14px;
-  margin-top: 5px;
+/* Footer Sublogo Span (Tagline) */
+.footer-logo span {
+  font-size: 11px; /* Matching Navbar sublogo size */
+  font-weight: bold; /* Matching Navbar sublogo weight */
+  margin-top: 5px; /* Space between h2 and span */
   opacity: 0.8;
+  /* Color is inherited from .footer-logo-link or set by active class */
 }
 
+/* Footer Logo Hover Effect - Color Change */
+.footer-logo-link:hover {
+  color: #00d2d9; /* Changes both h2 and span color on hover */
+}
+
+/* Footer Logo Underline Animation */
+.footer-logo-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0; /* Start hidden */
+  height: 2px;
+  background-color: #00d2d9; /* Underline color */
+  transition: width 0.3s ease; /* Animate the width */
+}
+
+.footer-logo-link:hover::after {
+  width: 100%; /* Expand on hover */
+}
+
+/* Footer Logo Active State (Similar to Navbar) */
+.footer-logo-link.active-footer-logo {
+  color: #00d2d9; /* Retain highlight color when active */
+}
+.footer-logo-link.active-footer-logo::after {
+  width: 0; /* No underline on active state */
+}
+
+
+.footer-description {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* --- QUICK LINKS STYLING --- */
 .footer-links {
   display: flex;
   flex-direction: column;
@@ -82,12 +130,69 @@
   color: #fff;
   text-decoration: none;
   font-size: 14px;
+  white-space: nowrap;
+  position: relative; /* Needed for the underline animation */
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
+/* Quick Links Hover Effect - Color Change */
 .footer-links a:hover {
   color: #00d2d9;
 }
 
+/* Quick Links Underline Animation */
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0; /* Start hidden */
+  height: 2px;
+  background-color: #00d2d9;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* Quick Links Active State (Similar to Navbar) */
+.footer-links a.active-footer-link {
+  color: #00d2d9; /* Retain highlight color when active */
+}
+.footer-links a.active-footer-link::after {
+  width: 0; /* No underline on active state */
+}
+
+
+/* New styling for Contact Info */
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.footer-contact-info p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff; /* Ensure text color is white */
+    transition: color 0.3s ease;
+}
+
+.footer-contact-info p:hover {
+  color: #00d2d9;
+}
+
+.footer-contact-info p .fa-icon {
+    font-size: 16px;
+    color: #00d2d9;
+}
+
+
+/* --- SOCIAL ICONS STYLING --- */
 .footer-social {
   display: flex;
   gap: 15px;
@@ -109,21 +214,86 @@
   opacity: 0.7;
 }
 
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 1024px) {
+    .footer-content {
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .footer-group {
+        flex-basis: 45%;
+    }
+    .footer-about {
+        flex-basis: 45%;
+    }
+}
+
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
     align-items: center;
+    gap: 30px;
+    justify-content: center;
   }
 
-  .footer-links,
-  .footer-social {
+  .footer-group {
     align-items: center;
+    width: 100%;
+    flex-basis: auto;
+    min-width: unset;
+  }
+
+  /* Remove underline from logo and links on mobile to simplify */
+  .footer-logo-link::after,
+  .footer-logo-link:hover::after,
+  .footer-links a::after,
+  .footer-links a:hover::after {
+    width: 0 !important;
+  }
+
+  .footer-group h3 {
+    text-align: center;
+  }
+
+  /* Adjust logo styling for mobile */
+  .footer-logo-link {
+    flex-direction: column; /* Ensure stack on mobile */
+    align-items: center; /* Center text on mobile */
+    margin-bottom: 5px;
+  }
+  .footer-logo h2 {
+    font-size: 22px; /* Slightly smaller on mobile */
+  }
+  .footer-logo span {
+    font-size: 10px; /* Slightly smaller on mobile */
+  }
+
+  .footer-description {
+    text-align: center;
+    max-width: 90%;
   }
 
   .footer-links {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 15px 25px;
+    padding: 0 10px;
+  }
+
+  .footer-links a {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .footer-contact-info {
+    align-items: center;
+  }
+  .footer-contact-info p {
+    justify-content: center;
+  }
+
+  .footer-social {
+    justify-content: center;
   }
 }

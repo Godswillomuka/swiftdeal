@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Shield, Clock, Star, TrendingUp, Store, ShoppingBag, Wrench } from 'lucide-react';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import './Home.css';
@@ -229,6 +231,79 @@ const Home = () => {
             </div>
           </div>
         </section>
+         {/* Features Section */}
+      <section className="features-section">
+        <div className="container">
+          <div className="section-header">
+            <h3>Why Choose SwiftDeal?</h3>
+            <p>
+              We provide the best platform for buyers and sellers to connect,
+              with features that make online commerce safe and easy.
+            </p>
+          </div>
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="icon-box"><Shield size={24} /></div>
+              <h4>Secure Trading</h4>
+              <p>Protected payments and verified sellers for your peace of mind</p>
+            </div>
+            <div className="feature-card">
+              <div className="icon-box"><Clock size={24} /></div>
+              <h4>24/7 Support</h4>
+              <p>Round-the-clock customer service to assist you anytime</p>
+            </div>
+            <div className="feature-card">
+              <div className="icon-box"><Star size={24} /></div>
+              <h4>Quality Products</h4>
+              <p>Curated marketplace with high-quality items and services</p>
+            </div>
+            <div className="feature-card">
+              <div className="icon-box"><TrendingUp size={24} /></div>
+              <h4>Growing Fast</h4>
+              <p>Join Kenya's fastest-growing online marketplace</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Roles Section */}
+      <section className="roles-section">
+        <div className="container">
+          <div className="section-header">
+            <h3>Get Started Today</h3>
+            <p>Choose your role and begin your journey with Brand Blast</p>
+          </div>
+          <div className="roles-grid">
+            <div className="role-card">
+              <div className="icon-box"><Store size={24} /></div>
+              <h4>Sell Your Products</h4>
+              <p>Start your online business for just 4000 KSH/month. Reach thousands of buyers and grow your brand.</p>
+              <Link to="/dashboard/seller" className="role-btn">
+                <Store size={20} />
+                Go to Seller Dashboard
+              </Link>
+            </div>
+            <div className="role-card">
+              <div className="icon-box"><ShoppingBag size={24} /></div>
+              <h4>Shop Smart</h4>
+              <p>Find the best deals on electronics, fashion, home goods, and more. Shop with confidence.</p>
+              <Link to="/dashboard/buyer" className="role-btn">
+                <ShoppingBag size={20} />
+                Go to Buyer Dashboard
+              </Link>
+            </div>
+            <div className="role-card">
+              <div className="icon-box"><Wrench size={24} /></div>
+              <h4>Offer Services</h4>
+              <p>List your professional services and connect with clients who need your expertise.</p>
+              <Link to="/dashboard/seller" className="role-btn">
+                <Wrench size={20} />
+                Go to Services Dashboard
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
       </main>
       <Footer />
     </div>
