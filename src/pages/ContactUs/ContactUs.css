@@ -1,0 +1,273 @@
+/* Base Container and Background */
+.contact-us-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #e0f2f7, #ffffff); /* Light blue to white gradient */
+  padding-top: 5rem; /* Increased padding for better top spacing */
+  padding-bottom: 5rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+/* Content Wrapper */
+.contact-content-wrapper {
+  max-width: 900px; /* Consistent width with other pages */
+  margin: 0 auto;
+  padding: 0 1rem; /* Horizontal padding */
+}
+
+/* Main Title */
+.contact-title {
+  font-size: 3rem; /* Larger title */
+  font-weight: bold;
+  color: #05161a; /* Dark background color for strong contrast */
+  margin-bottom: 3rem; /* More space below title */
+  text-align: center;
+}
+
+/* --- Contact Information Cards --- */
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 2rem; /* Gap between cards */
+  margin-bottom: 3rem; /* Space below info cards */
+}
+
+.info-card {
+  background-color: #ffffff; /* White background for the card */
+  padding: 1.5rem;
+  border-radius: 1.25rem; /* Rounded corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* More pronounced shadow */
+}
+
+.info-icon-wrapper {
+  width: 3.5rem; /* Icon circle size */
+  height: 3.5rem;
+  background-color: #e0f2f7; /* Light blue background for icon circle */
+  border-radius: 50%; /* Circular shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+  width: 1.5rem; /* Icon size */
+  height: 1.5rem;
+  color: #1c626e; /* Primary brand color for icons */
+}
+
+.info-title {
+  font-size: 1.25rem; /* Title font size */
+  font-weight: 600; /* Semi-bold */
+  margin-bottom: 0.5rem;
+  color: #05161a; /* Dark color for titles */
+}
+
+.info-text {
+  color: #4a5568; /* Neutral grey for text */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* --- Contact Form --- */
+.contact-form-card {
+  background-color: #ffffff; /* White background for the form card */
+  border-radius: 1.5rem; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Consistent shadow */
+  padding: 3rem; /* Internal padding */
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between whole form rows */
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Two columns on larger screens */
+  gap: 1.5rem; /* This creates the consistent horizontal and vertical gap between grid items */
+}
+
+/* Apply padding to the immediate children of .form-grid for visual spacing */
+.form-grid > div {
+    padding: 0 0.5rem; /* Adds 0.5rem padding on the left and right of each grid item content */
+}
+
+
+.form-label {
+  display: block; /* Ensures label takes full width */
+  font-size: 0.95rem; /* Slightly smaller font for label */
+  font-weight: 500; /* Medium weight */
+  color: #374151; /* Darker grey for labels */
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%; /* Remains 100% of its parent div's available space */
+  padding: 0.75rem 1rem; /* Padding inside input */
+  border: 1px solid #d1d5db; /* Light grey border */
+  border-radius: 0.625rem; /* Rounded input fields */
+  font-size: 1rem;
+  color: #374151;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none; /* Remove default outline */
+  border-color: #1c626e; /* Primary color border on focus */
+  box-shadow: 0 0 0 3px rgba(28, 98, 110, 0.2); /* Soft shadow on focus */
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+textarea.form-input {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px; /* Minimum height for textarea */
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Space between icon and text */
+  /* Reduced width: */
+  max-width: 250px; /* Limit the maximum width of the button */
+  margin: 0 auto; /* Center the button */
+  /* Reduced padding: */
+  padding: 0.65rem 1.25rem; /* Slightly less vertical and horizontal padding */
+  background-color: #00d2d9; /* Highlight brand color for button */
+  color: #05161a; /* Dark text for contrast */
+  border-radius: 0.75rem; /* Rounded button */
+  font-size: 1rem; /* Slightly smaller font size */
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 210, 217, 0.2); /* Subtle shadow for button */
+}
+
+.submit-button:hover {
+  background-color: #00b0b8; /* Slightly darker highlight color on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 6px 15px rgba(0, 210, 217, 0.3); /* More pronounced shadow */
+}
+
+.submit-button:active {
+  transform: translateY(0); /* Press effect */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.submit-icon {
+  width: 1.1rem; /* Slightly smaller icon size */
+  height: 1.1rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .contact-us-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    margin-bottom: 2rem;
+  }
+
+  .info-card {
+      padding: 1.25rem;
+  }
+
+  .contact-form-card {
+    padding: 2rem;
+    border-radius: 1.25rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr; /* Stack form inputs on mobile */
+  }
+
+  /* Adjust padding for smaller screens if necessary, or remove if not desired */
+  .form-grid > div {
+    padding: 0; /* Remove extra padding on mobile if inputs should be full width */
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+  }
+
+  .form-input {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .submit-button {
+    /* Maintain smaller size, perhaps make it full width again for mobile */
+    max-width: 100%; /* Allow button to stretch full width on smaller screens */
+    padding: 0.65rem 1.25rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-us-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-card {
+      padding: 1rem;
+      border-radius: 1rem;
+  }
+
+  .info-icon-wrapper {
+      width: 3rem;
+      height: 3rem;
+  }
+
+  .info-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+  }
+
+  .info-title {
+      font-size: 1.1rem;
+  }
+
+  .info-text {
+      font-size: 0.9rem;
+  }
+
+  .contact-form-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .contact-form {
+      gap: 1rem;
+  }
+}
