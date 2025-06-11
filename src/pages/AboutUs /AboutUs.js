@@ -15,7 +15,7 @@ function AboutUs() {
           <div className="hero-content">
             <h1 className="hero-title">Our Story</h1>
             <p className="hero-text">
-              Brand Blast was founded in 2023 with a simple mission: to revolutionize how Kenyans buy and sell online.
+              SwiftDeal was founded in 2023 with a simple mission: to revolutionize how Kenyans buy and sell online.
               Today, we're Kenya's fastest-growing marketplace, connecting thousands of sellers with millions of buyers.
             </p>
           </div>

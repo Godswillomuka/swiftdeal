@@ -1,168 +1,329 @@
+/* Base container for About Us page */
 .aboutus-container {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #ebf4ff, #fff);
+  /* Use a subtle gradient or solid light background that complements your brand */
+  background: linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%);
+  color: #333; /* Default text color */
 }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .hero-section {
   position: relative;
-  padding: 100px 20px;
+  padding: 120px 20px; /* More vertical padding */
   text-align: center;
+  background-color: #05161a; /* Your dark background color */
+  color: #fff; /* White text for contrast */
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
+
 .hero-bg {
   background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80');
   background-size: cover;
   background-position: center;
-  opacity: 0.1;
+  /* Adjust opacity to make it a subtle overlay, not distracting */
+  opacity: 0.08; /* Slightly less opaque */
   position: absolute;
   inset: 0;
+  pointer-events: none; /* Ensure it doesn't interfere with interaction */
 }
+
 .hero-content {
-  position: relative;
-  max-width: 800px;
+  position: relative; /* Ensure content is above the background */
+  max-width: 900px; /* Slightly wider content area */
+  margin: 0 auto;
+  z-index: 1; /* Bring content to front */
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsive font size */
+  font-weight: bold;
+  color: #00d2d9; /* Your highlight color for main title */
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Add subtle text shadow */
+}
+
+.hero-text {
+  font-size: clamp(1.1rem, 2vw, 1.5rem); /* Responsive font size */
+  color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for readability */
+  line-height: 1.8;
+  max-width: 700px; /* Control text width */
   margin: 0 auto;
 }
-.hero-title {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #2d3748;
-  margin-bottom: 20px;
-}
-.hero-text {
-  font-size: 1.25rem;
-  color: #4a5568;
-  line-height: 1.8;
-}
 
-/* Vision & Mission */
+/* --- Vision & Mission --- */
 .vision-mission-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minmax */
+  gap: 30px; /* Slightly reduced gap */
   max-width: 1200px;
-  margin: auto;
-  padding: 100px 20px;
-}
-.vision-box,
-.mission-box {
-  background: #ebf4ff;
-  padding: 40px;
-  border-radius: 20px;
-}
-.vision-box h2,
-.mission-box h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+  margin: 80px auto; /* More vertical margin */
+  padding: 0 20px;
 }
 
-/* Statistics Section */
+.vision-box,
+.mission-box {
+  background-color: #ffffff; /* White background for clean look */
+  padding: 40px;
+  border-radius: 15px; /* Softer border-radius */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Consistent shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid #1c626e; /* Strong top border with primary color */
+}
+
+.mission-box {
+  border-top-color: #00d2d9; /* Highlight color for mission box */
+}
+
+.vision-box:hover,
+.mission-box:hover {
+    transform: translateY(-8px); /* Lift on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+}
+
+.vision-box h2,
+.mission-box h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem); /* Responsive font size */
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #1c626e; /* Primary brand color */
+}
+
+.mission-box h2 {
+  color: #00d2d9; /* Highlight color for mission title */
+}
+
+.vision-box p,
+.mission-box p {
+  font-size: 1.1rem;
+  color: #555; /* Neutral dark grey for body text */
+  line-height: 1.7;
+}
+
+/* --- Statistics Section --- */
 .stats-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusted minmax for smaller cards */
+  gap: 30px; /* Consistent gap */
   max-width: 1200px;
-  margin: auto;
-  padding: 100px 20px;
+  margin: 80px auto; /* Consistent margin */
+  padding: 0 20px;
   text-align: center;
 }
+
 .stat-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #ffffff; /* White background */
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
 .stat-icon {
-  background-color: #2b6cb0;
+  background-color: #1c626e; /* Your primary brand color */
   color: white;
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
+  width: 60px; /* Slightly smaller icon box */
+  height: 60px;
+  border-radius: 50%; /* Make it round */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow for icon */
 }
-.stat-card h3 {
-  font-size: 2rem;
-  color: #2b6cb0;
-  margin-bottom: 8px;
-}
-.stat-card p {
-  color: #4a5568;
+.stat-icon svg { /* Lucide icons are SVG */
+    width: 32px;
+    height: 32px;
 }
 
-/* Team Section */
+.stat-card h3 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem); /* Responsive size for numbers */
+  color: #00d2d9; /* Your highlight color for numbers */
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* --- Team Section --- */
 .team-section {
-  background-color: white;
+  background-color: #f8f8f8; /* Light background for this section */
   padding: 100px 20px;
   text-align: center;
 }
+
 .section-title {
-  font-size: 2rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: bold;
-  color: #2d3748;
+  color: #1c626e; /* Primary brand color for section titles */
   margin-bottom: 60px;
 }
+
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted minmax */
+  gap: 30px; /* Consistent gap */
+  max-width: 1100px;
   margin: auto;
 }
-.team-member img {
-  width: 130px;
-  height: 130px;
-  border-radius: 9999px;
-  object-fit: cover;
-  margin-bottom: 12px;
+
+.team-member {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.role {
-  color: #2b6cb0;
-  margin-bottom: 6px;
-}
-.desc {
-  color: #4a5568;
-  font-size: 14px;
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Values Section */
+.team-member img {
+  width: 120px; /* Slightly smaller image */
+  height: 120px;
+  border-radius: 50%; /* Perfect circle */
+  object-fit: cover;
+  margin-bottom: 15px; /* More space below image */
+  border: 4px solid #00d2d9; /* Highlight border around image */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+  font-size: 1.4rem;
+  color: #1c626e; /* Primary brand color */
+  margin-bottom: 8px;
+}
+
+.role {
+  font-size: 1rem;
+  color: #00d2d9; /* Highlight color for roles */
+  margin-bottom: 10px;
+  font-weight: 600; /* Make role slightly bolder */
+}
+
+.desc {
+  color: #555;
+  font-size: 0.9rem; /* Slightly smaller description */
+  line-height: 1.5;
+}
+
+/* --- Values Section --- */
 .values-section {
   padding: 100px 20px;
   text-align: center;
+  background-color: #ffffff; /* White background */
 }
+
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted minmax */
+  gap: 30px; /* Consistent gap */
   max-width: 1000px;
   margin: auto;
 }
+
 .value-card {
-  background-color: white;
-  padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-.value-card h3 {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: #2d3748;
-}
-.value-card p {
-  color: #4a5568;
+  background-color: #f0f0f0; /* Light grey background for cards */
+  padding: 35px; /* More padding */
+  border-radius: 15px; /* Consistent border-radius */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Consistent shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Responsive font adjustments */
-@media (max-width: 600px) {
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background-color: #e6e6e6; /* Slightly darker on hover */
+}
+
+.value-card h3 {
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #1c626e; /* Primary brand color */
+}
+
+.value-card p {
+  color: #555;
+  font-size: 1.05rem; /* Slightly larger paragraph text */
+  line-height: 1.6;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 80px 20px;
+  }
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .hero-text {
     font-size: 1rem;
   }
-  .section-title {
-    font-size: 1.5rem;
+
+  .vision-mission-section,
+  .stats-section,
+  .team-grid,
+  .values-grid {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    gap: 30px; /* Maintain consistent gap */
+    padding: 0 20px; /* Ensure padding on sides */
   }
+
+  .vision-mission-section,
+  .stats-section,
+  .team-section,
+  .values-section {
+      padding: 60px 20px; /* Reduce section padding on mobile */
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 60px 15px;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-text {
+        font-size: 0.9rem;
+    }
+    .stat-card h3 {
+        font-size: 2rem;
+    }
+    .stat-card p {
+        font-size: 0.9rem;
+    }
+    .team-member img {
+        width: 100px;
+        height: 100px;
+    }
+    .team-member h3 {
+        font-size: 1.2rem;
+    }
+    .role {
+        font-size: 0.9rem;
+    }
+    .value-card h3 {
+        font-size: 1.3rem;
+    }
+    .value-card p {
+        font-size: 0.95rem;
+    }
 }
