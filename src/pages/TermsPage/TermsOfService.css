@@ -1,0 +1,158 @@
+/* Base Container and Background */
+.terms-of-service-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #e0f2f7, #ffffff); /* Light blue to white gradient */
+  padding-top: 5rem; /* Increased padding for better top spacing */
+  padding-bottom: 5rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+/* Content Wrapper */
+.terms-content-wrapper {
+  max-width: 900px; /* Slightly wider than default */
+  margin: 0 auto;
+  padding: 0 1rem; /* Horizontal padding */
+}
+
+/* Header Section */
+.terms-header {
+  text-align: center;
+  margin-bottom: 3rem; /* More space below header */
+}
+
+.header-icon {
+  width: 4.5rem; /* Larger icon */
+  height: 4.5rem;
+  color: #1c626e; /* Primary brand color for icon */
+  margin: 0 auto 1rem; /* Center icon and add bottom margin */
+}
+
+.header-title {
+  font-size: 3rem; /* Larger title */
+  font-weight: bold;
+  color: #05161a; /* Dark background color for strong contrast */
+  margin-bottom: 0.75rem;
+}
+
+.last-updated {
+  color: #6b7280; /* Neutral grey for date */
+  font-size: 0.95rem;
+}
+
+/* Main Content Card */
+.terms-body-card {
+  background-color: #ffffff; /* White background for the card */
+  border-radius: 1.5rem; /* More rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Stronger, softer shadow */
+  padding: 3rem; /* Increased internal padding */
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Space between sections */
+}
+
+/* Section Headings */
+.section-heading {
+  font-size: 1.8rem; /* Slightly larger heading */
+  font-weight: bold;
+  color: #00d2d9; /* Highlight brand color for section titles */
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 210, 217, 0.2); /* Subtle highlight colored underline */
+}
+
+/* Section Text */
+.section-text {
+  color: #4a5568; /* Darker grey for body text for better readability */
+  line-height: 1.8; /* Improved line spacing */
+  font-size: 1.05rem; /* Slightly larger font size */
+}
+
+/* Lists within Sections */
+.section-content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Space between paragraph and list */
+}
+
+.terms-list {
+  list-style: disc;
+  list-style-position: inside; /* Keeps bullet points aligned with text */
+  color: #4a5568;
+  padding-left: 1.25rem; /* Indent list items */
+  font-size: 1.05rem;
+}
+
+.terms-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .terms-of-service-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .terms-header {
+    margin-bottom: 2rem;
+  }
+
+  .header-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .header-title {
+    font-size: 2.5rem;
+  }
+
+  .terms-body-card {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
+  }
+
+  .section-text,
+  .terms-list {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-of-service-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .terms-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .header-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .header-title {
+    font-size: 2rem;
+  }
+
+  .terms-body-card {
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .section-heading {
+    font-size: 1.3rem;
+  }
+
+  .section-text,
+  .terms-list {
+    font-size: 0.95rem;
+  }
+}
