@@ -4,11 +4,11 @@
   justify-content: space-between; /* Distributes logo (left), links (center), buttons (right) */
   align-items: center;
   padding: 15px 20px; /* Controls navbar height */
-  background-color: #1c626e;
+  background-color: #1c626e; /* Primary Brand Color */
   border-radius: 35px; /* Desktop border-radius */
-  position: sticky;
+  position: sticky; /* Stays at the top when scrolling */
   top: 0;
-  z-index: 100;
+  z-index: 100; /* Ensures navbar is above other content */
 }
 
 /* Logo */
@@ -19,7 +19,7 @@
   gap: 5px;
   cursor: pointer;
   margin-left: 50px; /* Fixed left margin */
-  flex-shrink: 0;
+  flex-shrink: 0; /* Prevents shrinking on smaller screens */
 }
 
 /* Ensure no underline on the logo's link or its pseudo-elements */
@@ -35,7 +35,7 @@
 /* Logo Hover State (Color only, no underline) */
 .nav-logo-link:hover h1,
 .nav-logo-link:hover .nav-sublogo {
-  color: #00d2d9; /* Example hover color */
+  color: #00d2d9; /* Highlight Brand Color on hover */
   transition: color 0.3s ease;
 }
 
@@ -60,12 +60,12 @@
 
 /* Hamburger - hidden on desktop by default */
 .hamburger {
-  display: none;
+  display: none; /* Hidden by default for desktop */
   flex-direction: column;
   cursor: pointer;
   margin-right: 50px;
   gap: 5px;
-  z-index: 200;
+  z-index: 200; /* Ensure it's above other content and the mobile menu when open */
 }
 
 .bar {
@@ -76,6 +76,7 @@
   transition: 0.4s;
 }
 
+/* Hamburger animation for 'open' state */
 .bar.change:nth-child(1) {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -100,21 +101,21 @@
 }
 
 .nav-links li {
-  position: relative; /* Already here for desktop, ensuring ::after works */
+  position: relative; /* Needed for the ::after underline positioning */
 }
 
 .nav-links a {
-  text-decoration: none;
+  text-decoration: none; /* Remove default underline */
   color: #fff;
   font-weight: bold;
   transition: color 0.3s ease; /* Transition for color change */
 }
 
 .nav-links a:hover {
-  color: #00d2d9;
+  color: #00d2d9; /* Highlight Brand Color on hover */
 }
 
-/* Underline Animation */
+/* Underline Animation for main nav links */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -142,7 +143,7 @@
 }
 
 
-/* Buttons - Desktop/Tablet Specific */
+/* Authentication Buttons (now Links) - Desktop/Tablet Specific */
 .nav-buttons {
   display: flex;
   gap: 10px;
@@ -150,60 +151,85 @@
   flex-shrink: 0;
 }
 
-.login-button {
+/* Styles for the Link elements that look like buttons */
+.nav-buttons .login-button,
+.nav-buttons .signup-button {
+  text-decoration: none !important; /* IMPORTANT: Ensures no underline */
+  /* Remove any ::after if it somehow inherited, though it shouldn't from .nav-links a */
+  content: none !important;
+  display: flex; /* Allows button content to center */
+  align-items: center;
+  justify-content: center;
   padding: 10px 15px;
   border: none;
-  border-radius: 35px;
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
-  background-color: #05161a;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Soft shadow for depth */
+}
+
+.login-button {
+  background-color: #05161a; /* Dark Background Color */
   color: #fff;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 35px; /* Login has 35px */
 }
 
 .login-button:hover {
-  background-color: #16191a;
-  color: #5ddddd;
+  background-color: #16191a; /* Slightly lighter dark for hover */
+  color: #5ddddd; /* A subtle highlight on hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .signup-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #00d2d9;
+  background-color: #00d2d9; /* Highlight Brand Color */
   color: #ffffff;
-  transition: background-color 0.3s ease;
+  border-radius: 30px; /* Signup has 30px */
 }
 
 .signup-button:hover {
-  background-color: #aaebf0;
+  background-color: #aaebf0; /* Lighter highlight for hover */
+  box-shadow: 0 4px 8px rgba(0,210,217,0.3);
 }
 
-/* Nav menu container (Mobile Only) */
+/* Mobile navigation menu container */
 .nav-menu {
-  display: none; /* Hidden by default */
+  /* FIX: Consistent display, controlled by opacity/visibility/max-height for animation */
+  display: flex; /* Always display as flex for consistent layout */
+  flex-direction: column; /* Stack links and buttons vertically */
+  align-items: center;
+  justify-content: flex-start; /* Start content from the top */
+
   position: absolute;
   top: 70px; /* Aligns below the main navbar */
   left: 0;
   right: 0;
   width: 100%;
-  background-color: #1c626e;
+  background-color: #1c626e; /* Primary Brand Color */
   border-radius: 0 0 10px 10px; /* Rounded bottom corners for dropdown */
-  max-height: 0; /* Hidden by default */
-  opacity: 0; /* Hidden by default */
+
+  max-height: 0; /* Hidden by default, controls height transition */
+  opacity: 0;     /* Hidden by default, controls fade */
+  visibility: hidden; /* NEW: Hides completely from screen readers and interaction */
+  pointer-events: none; /* NEW: Prevents clicks when hidden */
   overflow: hidden; /* Clips content as max-height transitions */
+
   padding: 0 20px; /* Initial padding when closed */
   box-sizing: border-box;
-  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-  z-index: 150;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  /* NEW: Transition all relevant properties for smooth animation */
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out, visibility 0.3s ease-out;
+  z-index: 150; /* Ensure it's above main content but below hamburger icon */
 }
+
+/* Mobile Nav Menu Active State */
+.nav-menu.nav-active {
+  max-height: 500px; /* Sufficient height to show all content */
+  opacity: 1;
+  visibility: visible; /* Make visible */
+  pointer-events: auto; /* Allow interaction */
+  padding: 10px 20px; /* Reduced vertical padding for the open mobile menu */
+}
+
 
 /* MOBILE RESPONSIVE - Applies below 768px */
 @media (max-width: 768px) {
@@ -220,6 +246,7 @@
 
   .hamburger {
     display: flex; /* Show hamburger on mobile */
+    margin-right: 10px; /* Adjust margin for mobile */
   }
 
   /* Hide desktop nav links and buttons on mobile */
@@ -228,16 +255,7 @@
     display: none;
   }
 
-  /* Show mobile nav menu when active */
-  .nav-menu.nav-active {
-    max-height: 500px; /* Adjust if needed for content to fit */
-    opacity: 1;
-    padding: 10px 20px; /* Reduced vertical padding for the open mobile menu */
-    display: flex;
-    gap: 10px; /* Reduced vertical gap between mobile links block and buttons block */
-  }
-
-  /* Styling for duplicated mobile links */
+  /* Styling for duplicated mobile links (inside .nav-menu) */
   .nav-links-mobile {
     list-style: none;
     display: flex;
@@ -245,11 +263,12 @@
     gap: 5px; /* Further reduced gap between individual mobile links */
     margin: 0;
     padding: 0;
+    width: 100%; /* Ensure links take full width */
+    text-align: center; /* Center mobile links */
   }
 
   .nav-links-mobile li {
-    position: relative; /* <-- THIS IS THE CRUCIAL FIX FOR MOBILE UNDERLINES */
-    text-align: center;
+    position: relative; /* Needed for mobile link underlines */
   }
 
   .nav-links-mobile a {
@@ -287,13 +306,13 @@
     color: #00d2d9;
   }
 
-  .nav-links-mobile a.active-link-mobile::after,
+  .nav-links-mobile a.active-link-mobile:after,
   .nav-links-mobile a.active-link-mobile:hover::after {
     width: 0; /* Keep hidden */
     background-color: transparent;
   }
 
-  /* Styling for duplicated mobile buttons */
+  /* Styling for duplicated mobile buttons (inside .nav-menu) */
   .nav-buttons-mobile {
     display: flex;
     flex-direction: column;
@@ -303,8 +322,15 @@
     width: 100%;
   }
 
-  .nav-buttons-mobile button {
-    width: 90%;
+  /* FIX: Styles for the Link elements that look like buttons for mobile */
+  .nav-buttons-mobile .login-button,
+  .nav-buttons-mobile .signup-button {
+    text-decoration: none !important; /* IMPORTANT: Ensures no underline for mobile buttons */
+    content: none !important; /* Ensure no pseudo-elements */
+    display: flex; /* Allows button content to center */
+    align-items: center;
+    justify-content: center;
+    width: 90%; /* Buttons take 90% width of their container */
     max-width: 250px; /* Slightly reduced max-width for buttons */
     padding: 8px 12px; /* Further reduced padding for mobile buttons */
     font-size: 13px; /* Slightly more reduced font size for mobile buttons */
@@ -312,6 +338,7 @@
     border-radius: 30px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Soft shadow */
   }
 }

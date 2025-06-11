@@ -1,0 +1,333 @@
+/* Base container for Login/Signup/Sell pages */
+/* This div wraps the auth-card and provides consistent background and overall padding. */
+.auth-page-container {
+  min-height: calc(100vh - 140px); /* Adjust based on your Navbar and Footer heights */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #e0f2f7, #ffffff); /* Light blue to white gradient */
+  padding: 2rem 1rem; /* Overall padding for the page content */
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box; /* Ensures padding is included in element's total size */
+  color: #333; /* Default text color */
+}
+
+/* Auth Card (the white box containing the form) */
+.auth-card {
+  background-color: #ffffff;
+  border-radius: 1.5rem; /* Generous rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft, subtle shadow */
+  padding: 3rem; /* Internal padding for content within the card */
+  width: 100%;
+  max-width: 450px; /* Maximum width of the card */
+  text-align: center;
+  position: relative; /* Needed for positioning the header icon */
+}
+
+/* User icon displayed above the h1 title */
+.auth-header-icon {
+    width: 3.5rem; /* Size of the icon */
+    height: 3.5rem;
+    color: #1c626e; /* Primary brand color */
+    margin: -1.5rem auto 1rem; /* Negative top margin to slightly overlap card, centered */
+    display: block; /* Ensures it takes up full width for centering */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+    border-radius: 50%; /* Makes the icon container circular */
+    background-color: #f8f8f8; /* Light background for the icon circle */
+    padding: 0.5rem; /* Padding inside the icon circle */
+}
+
+/* Title (e.g., "Login to your SwiftDeal account") */
+.auth-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #05161a; /* Very dark blue/black for strong contrast */
+  margin-bottom: 2.5rem; /* Space below the title */
+}
+
+/* Form container */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between major form groups (e.g., email field and password field) */
+  margin-bottom: 1.5rem;
+}
+
+/* Individual input group (label + input + optional icon/toggle) */
+.input-group {
+  text-align: left; /* Aligns label and input to the left */
+  position: relative; /* Needed for absolute positioning of icons/toggles */
+}
+
+/* Label for input fields */
+.input-label {
+  display: block; /* Ensures label takes full width */
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151; /* Dark grey for labels */
+  margin-bottom: 0.5rem;
+}
+
+/* Wrapper for input and its leading icon */
+.input-with-icon {
+  position: relative;
+  display: flex; /* Ensures icon and input are on the same line */
+  align-items: center;
+}
+
+/* Icon inside the input field (e.g., Mail, Lock) */
+.input-icon {
+  position: absolute;
+  left: 1rem; /* Positions the icon inside the input field */
+  color: #9ca3af; /* Light grey for icons */
+  width: 1.25rem;
+  height: 1.25rem;
+  pointer-events: none; /* Prevents icon from blocking input clicks */
+  z-index: 2; /* Ensures icon is above the input field */
+}
+
+/* Main styling for all input fields */
+.auth-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem; /* Adjusts padding for the leading icon */
+  border: 1px solid #d1d5db; /* Light grey border */
+  border-radius: 0.625rem; /* Rounded input fields */
+  font-size: 1rem;
+  color: #374151;
+  background-color: #fcfcfc; /* Slightly off-white background */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions on focus */
+  -webkit-appearance: none; /* For consistent styling across browsers */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Specific padding for password inputs to accommodate the toggle button */
+.auth-input.password-input {
+    padding-right: 3rem; /* Ensures enough space for the eye icon button */
+}
+
+/* Focus state for input fields */
+.auth-input:focus {
+  outline: none; /* Removes default browser outline */
+  border-color: #1c626e; /* Primary brand color border on focus */
+  box-shadow: 0 0 0 3px rgba(28, 98, 110, 0.2); /* Soft shadow on focus */
+}
+
+/* Placeholder text color */
+.auth-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Password Visibility Toggle Button */
+.password-toggle-button {
+    position: absolute;
+    right: 1rem; /* Positions the toggle button inside the input field */
+    top: 50%; /* Vertically centers the button */
+    transform: translateY(-50%); /* Fine-tunes vertical centering */
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Indicates it's clickable */
+    padding: 0; /* No internal padding */
+    display: flex; /* Allows centering of its icon */
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af; /* Icon color */
+    transition: color 0.2s ease; /* Smooth color transition on hover */
+    z-index: 3; /* Ensures it's above the input field */
+}
+
+.password-toggle-button:hover {
+    color: #1c626e; /* Primary brand color on hover */
+}
+
+.password-toggle-button svg {
+    width: 1.25rem; /* Size of the SVG icon */
+    height: 1.25rem;
+}
+
+/* Link for "Forgot Password?" */
+.forgot-password-link {
+  display: block;
+  text-align: right; /* Aligns the link to the right */
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #1c626e; /* Primary brand color */
+  text-decoration: none; /* Removes default underline */
+  transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+  color: #00d2d9; /* Highlight color on hover */
+  text-decoration: underline; /* Adds underline on hover */
+}
+
+/* Checkbox Group (for Terms & Privacy Policy) */
+.checkbox-group {
+  display: flex;
+  align-items: center; /* Aligns checkbox and text vertically */
+  gap: 0.75rem; /* Space between checkbox and label text */
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+/* Styling for the checkbox input */
+.terms-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  min-width: 1.25rem; /* Prevents shrinking on smaller screens */
+  border: 1px solid #d1d5db;
+  border-radius: 0.35rem; /* Slightly rounded checkbox */
+  accent-color: #1c626e; /* Primary brand color for the checkmark */
+  cursor: pointer;
+}
+
+/* Label text for the checkbox */
+.terms-label {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.4; /* Improved readability */
+  cursor: pointer; /* Indicates it's clickable */
+}
+
+/* Links within the checkbox label (Terms & Privacy Policy) */
+.terms-link {
+  color: #1c626e; /* Primary brand color for links */
+  text-decoration: none; /* Removes default underline */
+  font-weight: 600; /* Makes links slightly bolder */
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.terms-link:hover {
+  color: #00d2d9; /* Highlight color on hover */
+  text-decoration: underline; /* Adds underline on hover */
+}
+
+/* Authentication Button (e.g., Login, Sign Up, Register as Seller) */
+.auth-button {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background-color: #00d2d9; /* Highlight brand color */
+  color: #05161a; /* Dark text for contrast */
+  border-radius: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 210, 217, 0.2); /* Subtle shadow for depth */
+}
+
+/* Hover state for the button */
+.auth-button:hover {
+  background-color: #00b0b8; /* Slightly darker highlight on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 6px 15px rgba(0, 210, 217, 0.3); /* More pronounced shadow */
+}
+
+/* Active (click) state for the button */
+.auth-button:active {
+  transform: translateY(0); /* Resets position */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+}
+
+/* Disabled state for the button (e.g., if terms not agreed) */
+.auth-button:disabled {
+  background-color: #cbd5e0; /* Lighter grey for disabled state */
+  color: #a0aec0; /* Lighter text for disabled state */
+  cursor: not-allowed; /* Indicates non-clickable */
+  opacity: 0.8;
+  transform: none; /* No lift effect when disabled and hovered */
+  box-shadow: none; /* No shadow when disabled */
+}
+
+/* Alternate text for navigation (e.g., "Don't have an account?") */
+.auth-alt-text {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-top: 2rem; /* Space above this text */
+}
+
+/* Links within the alternate text */
+.auth-alt-link {
+  color: #1c626e; /* Primary brand color */
+  text-decoration: none; /* Removes default underline */
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.auth-alt-link:hover {
+  color: #00d2d9; /* Highlight color on hover */
+  text-decoration: underline; /* Adds underline on hover */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 500px) {
+  .auth-page-container {
+    padding: 1rem 0.5rem; /* Reduced overall padding on very small screens */
+  }
+
+  .auth-card {
+    padding: 2rem; /* Reduced internal padding of the card */
+    border-radius: 1rem; /* Slightly less rounded corners */
+  }
+
+  .auth-header-icon {
+    width: 3rem; /* Smaller icon */
+    height: 3rem;
+    margin-top: -1.2rem; /* Adjust negative margin for smaller icon */
+  }
+
+  .auth-title {
+    font-size: 1.75rem; /* Smaller title font size */
+    margin-bottom: 2rem;
+  }
+
+  .auth-form {
+    gap: 1.25rem; /* Slightly reduced gap between form groups */
+  }
+
+  .input-label {
+    font-size: 0.85rem; /* Smaller label font size */
+  }
+
+  .auth-input {
+    padding: 0.65rem 1rem 0.65rem 2.5rem; /* Adjust padding for smaller leading icon */
+    font-size: 0.9rem; /* Smaller input font size */
+  }
+
+  .auth-input.password-input {
+      padding-right: 2.5rem; /* Adjust password input padding for mobile toggle */
+  }
+
+  .input-icon {
+    left: 0.8rem; /* Adjusted left position for smaller icon */
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .password-toggle-button {
+      right: 0.8rem; /* Adjusted right position for mobile toggle */
+  }
+  .password-toggle-button svg {
+      width: 1rem; /* Smaller eye icon */
+      height: 1rem;
+  }
+
+  .auth-button {
+    padding: 0.65rem 1rem; /* Smaller button padding */
+    font-size: 1rem; /* Smaller button font size */
+  }
+
+  .auth-alt-text {
+    font-size: 0.85rem; /* Smaller alternate text font size */
+    margin-top: 1.5rem;
+  }
+
+  /* Checkbox adjustment for smaller screens */
+  .checkbox-group {
+    flex-direction: row; /* Keep content in a row if space allows */
+    align-items: flex-start; /* Aligns text to top if it wraps to multiple lines */
+    font-size: 0.85rem; /* Smaller text */
+    gap: 0.5rem; /* Smaller gap */
+  }
+}

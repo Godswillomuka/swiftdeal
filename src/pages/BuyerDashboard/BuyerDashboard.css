@@ -1,0 +1,89 @@
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #f0f8ff, #ffffff); /* Light blue gradient */
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.dashboard-card {
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 3rem;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.dashboard-title {
+  font-size: 2.2rem;
+  color: #1c626e; /* Primary brand color */
+  margin-bottom: 1rem;
+}
+
+.dashboard-card p {
+  font-size: 1.1rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.dashboard-link, .dashboard-logout-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-link {
+  background-color: #00d2d9; /* Highlight Brand Color */
+  color: #05161a;
+  box-shadow: 0 4px 10px rgba(0, 210, 217, 0.2);
+}
+
+.dashboard-link:hover {
+  background-color: #00b0b8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 210, 217, 0.3);
+}
+
+.dashboard-logout-button {
+  background-color: #e53e3e; /* Red for logout */
+  color: #fff;
+  border: none;
+  margin-left: 1rem;
+}
+
+.dashboard-logout-button:hover {
+  background-color: #c53030;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(229, 62, 62, 0.3);
+}
+
+@media (max-width: 600px) {
+  .dashboard-card {
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+  .dashboard-title {
+    font-size: 1.8rem;
+  }
+  .dashboard-card p {
+    font-size: 1rem;
+  }
+  .dashboard-link, .dashboard-logout-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+  }
+}

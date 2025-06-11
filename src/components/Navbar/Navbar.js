@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom'; // Import useLocation
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
@@ -28,9 +28,8 @@ function Navbar() {
           to="/"
           className="nav-logo-link"
           onClick={closeMenu}
-          // Apply active-link class if current path is '/'
-          // and a separate class for hover effect on logo elements
         >
+          {/* Apply active-logo classes based on current path */}
           <h1 className={location.pathname === '/' ? 'active-logo-h1' : ''}>SwiftDeal</h1>
           <span className={`nav-sublogo ${location.pathname === '/' ? 'active-logo-sub' : ''}`}>
             -Global Marketplace-
@@ -76,19 +75,20 @@ function Navbar() {
         </li>
         <li>
           <Link
-            to="/sell"
+            // UPDATED: Link to seller signup page
+            to="/seller-signup"
             onClick={closeMenu}
-            className={location.pathname === '/sell' ? 'active-link' : ''}
+            className={location.pathname === '/seller-signup' ? 'active-link' : ''}
           >
             Sell
           </Link>
         </li>
       </ul>
 
-      {/* Buttons - Visible on Desktop/Tablet, hidden/moved on Mobile */}
+      {/* Buttons (now Links) - Visible on Desktop/Tablet, hidden/moved on Mobile */}
       <div className="nav-buttons">
-        <button className="login-button">Sign In</button>
-        <button className="signup-button">Register</button>
+        <Link to="/login" className="login-button" onClick={closeMenu}>Sign In</Link>
+        <Link to="/signup" className="signup-button" onClick={closeMenu}>Register</Link>
       </div>
 
       {/* Nav menu container (for Mobile only) */}
@@ -123,9 +123,10 @@ function Navbar() {
           </li>
           <li>
             <Link
-              to="/sell"
+              // UPDATED: Link to seller signup page for mobile
+              to="/seller-signup"
               onClick={closeMenu}
-              className={location.pathname === '/sell' ? 'active-link-mobile' : ''}
+              className={location.pathname === '/seller-signup' ? 'active-link-mobile' : ''}
             >
               Sell
             </Link>
@@ -133,8 +134,8 @@ function Navbar() {
         </ul>
 
         <div className="nav-buttons-mobile">
-          <button className="login-button">Sign In</button>
-          <button className="signup-button">Register</button>
+          <Link to="/login" className="login-button" onClick={closeMenu}>Sign In</Link>
+          <Link to="/signup" className="signup-button" onClick={closeMenu}>Register</Link>
         </div>
       </div>
     </nav>

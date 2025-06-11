@@ -14,7 +14,7 @@ function PrivacyPolicy() {
           <div className="privacy-header">
             <Lock className="header-icon" />
             <h1 className="header-title">Privacy Policy</h1>
-            <p className="last-updated">Last updated: March 15, 2025</p>
+            <p className="last-updated">Last updated: March 15, 202</p>
           </div>
 
           <div className="privacy-body-card">
