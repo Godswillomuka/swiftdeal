@@ -15,7 +15,7 @@ function TermsOfService() {
           <div className="terms-header">
             <Shield className="header-icon" />
             <h1 className="header-title">Terms of Service</h1>
-            <p className="last-updated">Last updated: March 15, 2024</p>
+            <p className="last-updated">Last updated: March 15, 2025</p>
           </div>
 
           <div className="terms-body-card">
